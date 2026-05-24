@@ -1,0 +1,155 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    width: 100%;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e7e7e7;
+    padding: 10px 0;
+}
+
+.navbar-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+
+.navbar-brand img {
+    height: 40px;
+    margin-left: 20px;
+}
+
+.floor-plan {
+    position: relative;
+    text-align: center;
+}
+
+.room {
+    position: absolute;
+    border: 1px solid #000;
+    cursor: pointer;
+    transition: transform 0.1s, background-color 0.3s;
+}
+
+.floorplan-img {
+    position: absolute;
+    top: 0px;
+    left: 22px;
+    width: 1600px;
+}
+
+.room-info {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #000;
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.5s, transform 0.5s;
+    z-index: 1000; /* Make sure it's above other elements */
+}
+
+.room-info.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.room-info img {
+    max-width: 400px;
+    height: auto;
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.info, .search-result {
+    margin-top: 20px;
+}
+
+.highlight {
+    font-weight: bold;
+}
+
+.room-info table {
+    width: 100%;
+}
+
+.room-info table td {
+    padding: 5px;
+}
+
+.room-info table tr td:first-child {
+    white-space: nowrap;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.quick-select-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 20px;
+}
+
+#searchInput {
+    width: 300px;
+    padding: 10px;
+    border: 2px solid #4CAF50;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    font-size: 16px;
+}
+
+#roomSelect {
+    width: 300px;
+    padding: 10px;
+    border: 2px solid #3f51b5;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    font-size: 16px;
+    background: #fff;
+}
+
+#roomSelect:focus {
+    border-color: #2f3ea3;
+}
+
+#searchInput:focus {
+    border-color: #45a049;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}

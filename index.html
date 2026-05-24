@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floor Plan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-inner">
+            <h1 class="text-center">
+                <b>同济大学嘉定校区济事楼4楼平面图--by 张艺扬</b>
+                <a class="navbar-brand" href="">
+                    <img src="images/refresh.jpg" style="height:40px;">
+                </a>
+            </h1>
+        </div>
+    </div>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="搜索房间信息.(房间名称或教师名称或房间号)">
+        <button onclick="searchInfo()">搜索</button>
+    </div>
+    <div class="quick-select-container">
+        <select id="roomSelect">
+            <option value="">快速选择房间...</option>
+        </select>
+        <button onclick="selectRoom()">查看房间</button>
+    </div>
+    <div class="floor-plan">
+        <img src="images/floorplan.png" alt="Floor Plan" width="1600" class="floorplan-img">
+        <div id="rooms-container"></div>
+    </div>
+    
+    <div class="search-result" id="searchResult"></div>
+    <script src="script.js"></script>
+</body>
+</html>
