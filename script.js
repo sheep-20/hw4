@@ -148,156 +148,421 @@ document.addEventListener('DOMContentLoaded', function() {
         '张晶':'https://sse.tongji.edu.cn/info/1207/3164.htm',
         '申恒涛':'https://cs.tongji.edu.cn/info/1061/3337.htm',
         '王成':'https://cs.tongji.edu.cn/info/1061/2800.htm',
+        '陈伟超':'https://cs.tongji.edu.cn/info/1121/3281.htm',
+        '朱亚萍':'https://cs.tongji.edu.cn/info/1063/3611.htm',
+        '杜博闻':'https://cs.tongji.edu.cn/info/1121/3282.htm',
+        '韩丰夏':'https://cs.tongji.edu.cn/info/1063/3608.htm',
+        '李冰':'https://cs.tongji.edu.cn/info/1063/3985.htm',
+        '尹长青':'https://cs.tongji.edu.cn/info/1061/2729.htm',
+        '沈莹':'https://cs.tongji.edu.cn/info/1061/3607.htm',
+        '金博':'https://cs.tongji.edu.cn/info/1063/2768.htm',
+        '黄杰':'https://cs.tongji.edu.cn/info/1122/3260.htm',
+        '高珍':'https://cs.tongji.edu.cn/info/1063/2764.htm',
+        '冯巾松':'https://cs.tongji.edu.cn/info/1064/2781.htm',
+        '范鸿飞':'https://cs.tongji.edu.cn/info/1063/2765.htm',
+        '唐剑锋':'https://cs.tongji.edu.cn/info/1064/2776.htm',
+        '邓浩':'https://cs.tongji.edu.cn/info/1063/3303.htm',
+        '徐行':'https://cs.tongji.edu.cn/info/1061/3726.htm',
+        '曹晓峰':'https://cs.tongji.edu.cn/info/1063/3692.htm',
+        '王轩瀚':'https://cs.tongji.edu.cn/info/1061/3961.htm',
+        '朱磊':'https://cs.tongji.edu.cn/info/1061/3378.htm',
+        '张鹏飞':'https://cs.tongji.edu.cn/info/1061/3967.htm',
+        '张奇':'https://cs.tongji.edu.cn/info/1061/4040.htm',
       
     };
 
+    const roomInfo5 = {
+        room505:  { class: '505',  roomname: '男卫生间',  teachers: ['暂无信息'], photo: 'images-5/room505.jpg' },
+        room506:  { class: '506',  roomname: '女卫生间',  teachers: ['暂无信息'], photo: 'images-5/room506.jpg' },
+        room507L: { class: '507L', roomname: '教师办公室', teachers: ['陈伟超','王洁','曾进','朱亚萍','杜博闻','韩丰夏','李冰'], photo: 'images-5/room507L.jpg' },
+        room508:  { class: '508',  roomname: '研究生办公室',  teachers: ['尹长青'], photo: 'images-5/room508.jpg' },
+        room509L: { class: '509L', roomname: '研究生工作室', teachers: ['史清江'], photo: 'images-5/room509L.jpg' },
+        room509R: { class: '509R', roomname: '教师办公室', teachers: ['尹长青','沈莹','金博'], photo: 'images-5/room509R.jpg' },
+        room510L: { class: '510L', roomname: '教师办公室', teachers: ['赵生捷'], photo: 'images-5/room510L.jpg' },
+        room510R: { class: '510R', roomname: '教师办公室', teachers: ['暂无信息'], photo: 'images-5/room510R.jpg' },
+        room511:  { class: '511',  roomname: '研究生工作室',  teachers: ['罗怡桂'], photo: 'images-5/room511.jpg' },
+        room512:  { class: '512',  roomname: '教师办公室',  teachers: ['暂无信息'], photo: 'images-5/room512.jpg' },
+        room513:  { class: '513',  roomname: '弱电间',  teachers: ['暂无信息'], photo: 'images-5/room513.jpg' },
+        room514:  { class: '514',  roomname: '教师办公室',  teachers: ['黄杰','高珍','冯巾松','范鸿飞','唐剑锋','邓浩'], photo: 'images-5/room514.jpg' },
+        room515:  { class: '515',  roomname: '强电间',  teachers: ['暂无信息'], photo: 'images-5/room515.jpg' },
+        room516:  { class: '516',  roomname: '实验室',  teachers: ['暂无信息'], photo: 'images-5/room516.jpg' },
+        room517:  { class: '517',  roomname: '主机服务器机房',  teachers: ['暂无信息'], photo: 'images-5/room517.jpg' },
+        room518L: { class: '518L', roomname: '教师办公室', teachers: ['徐行','曹晓峰','王轩瀚'], photo: 'images-5/room518L.jpg' },
+        room518R: { class: '518R', roomname: '同济大学IBM技术俱乐部', teachers: ['朱磊', '张鹏飞', '张奇' ], photo: 'images-5/room518R.jpg' },
+        room519:  { class: '519',  roomname: '同济大学贝宝实验室/同济大学eBay国家级工程实践教育中心',  teachers: ['暂无信息'], photo: 'images-5/room519.jpg' },
+        room520:  { class: '520',  roomname: '房间520 - 杂物间',  teachers: ['暂无信息'], photo: 'images-5/room520.jpg' },
+    };
+
+    Object.assign(roomInfo5, {
+        facility5ClosedDoorL: { class: '关闭连廊', roomname: '五楼左侧连廊', teachers: ['暂无信息'], photo: 'images-5/ClosedDoor1.jpg', type: 'facility', selectable: false, searchable: false },
+        facility5Elevator: { class: '电梯', roomname: '五楼电梯', teachers: ['暂无电梯图片'], type: 'facility', selectable: false, searchable: false },
+        facility5DoorL: { class: '楼梯', roomname: '五楼左侧楼梯', teachers: ['暂无信息'], photo: 'images-5/DoorL.jpg', type: 'facility', selectable: false, searchable: false },
+        facility5ClosedDoorR: { class: '关闭连廊', roomname: '五楼右侧连廊', teachers: ['暂无信息'], photo: 'images-5/ClosedDoor2.jpg', type: 'facility', selectable: false, searchable: false },
+        facility5DoorR: { class: '楼梯', roomname: '五楼右侧楼梯', teachers: ['暂无信息'], photo: 'images-5/DoorR.jpg', type: 'facility', selectable: false, searchable: false },
+    });
+
+    const roomsPosition5 = {
+        facility5DoorL: { points: [[1238, 260], [1282, 212], [1398, 306], [1356, 356]]},
+        facility5ClosedDoorR: { points: [[1282, 212], [1322, 165], [1598, 385], [1558, 433]]},
+        facility5DoorR: { points: [[1396, 388], [1440, 340], [1558, 433], [1514, 485]]},
+        room505:  { points: [[1150, 358], [1238, 260], [1356, 356], [1270, 453]]},
+        room506:  { points: [[1314, 488], [1396, 388], [1514, 485], [1434, 587]] },
+        room507L: { points: [[1027, 512], [1150, 358], [1270, 453], [1142, 607]] },
+        room508:  { points: [[1185, 638], [1314, 488], [1434, 587], [1311, 741]] },
+        room509L: { points: [[965, 575], [1027, 512], [1142, 607], [1055, 693]] },
+        room509R: { points: [[965, 575], [883, 627], [947, 754], [1055, 693]]  },
+        room510L: { points: [[1145, 683], [1185, 638], [1311, 741], [1258, 803]] },
+        room510R: {  points: [[1093, 728], [1145, 683], [1258, 803], [1197, 861]] },
+        room511:  { points: [[730, 660], [883, 627], [947, 753], [730, 810]] },
+        room512:  { points: [[978, 803], [1093, 728], [1197, 861], [1052, 953]] },
+        room513:  { points: [[650, 715], [730, 715], [730, 810], [650, 807]] },
+        room514:  { points: [[730, 863], [858, 845], [895, 995], [730, 1018]] },
+        room515:  { points: [[560, 666], [730, 660], [730, 715], [560, 715]] },
+        room516:  { points: [[455, 862], [667, 862], [667, 1018], [455, 1024]] },
+        room517:  { points: [[458, 666], [560, 666], [560, 807], [458, 807]] },
+        room518L: { points: [[353, 862], [455, 862], [455, 1024], [353, 1020]]},
+        room518R: {  points: [[260, 862], [353, 862], [353, 1020], [260, 1017]] },
+        room519:  { points: [[260, 657], [458, 660], [458, 806], [260, 806]] },
+        room520:  { points: [[205, 963], [260, 963], [260, 1018], [205, 1015]] },
+        facility5ClosedDoorL: { rect: { x: 132, y: 656, width: 50, height: 359, rotation: 0 } },
+        facility5Elevator: { rect: { x: 200, y: 900, width: 52, height: 60, rotation: 0 } },
+    };
+
+    const floors = {
+        4: {
+            title: '4楼平面图',
+            image: 'images/floorplan.png',
+            imageAlt: '4楼平面图',
+            positions: roomsPosition,
+            info: roomInfo,
+            layerOffset: { left: -6, top: 3 },
+            missingMapText: ''
+        },
+        5: {
+            title: '5楼平面图',
+            image: 'images-5/floorplan.jpg',
+            imageAlt: '5楼平面图',
+            positions: roomsPosition5,
+            info: roomInfo5,
+            layerOffset: { left: 0, top: 0 },
+            missingMapText: ''
+        }
+    };
+
     const roomSelect = document.getElementById('roomSelect');
+    const floorplanImage = document.getElementById('floorplanImage');
+    const floorPlanElement = document.querySelector('.floor-plan');
+    const currentFloorTitle = document.getElementById('currentFloorTitle');
+    const mapMessage = document.getElementById('mapMessage');
+    const searchResultDiv = document.getElementById('searchResult');
+    let currentFloorId = '4';
+    let selectedRoomId = '';
 
     function normalizeText(text) {
         return (text || '').toLowerCase().replace(/\s+/g, '');
     }
 
-    function getRoomDisplayLabel(roomId) {
-        const info = roomInfo[roomId] || {};
+    function getFloor() {
+        return floors[currentFloorId];
+    }
+
+    function getRoomDisplayLabel(floorId, roomId) {
+        const info = floors[floorId].info[roomId] || {};
         const roomClass = info.class && info.class !== '无' ? info.class : roomId.replace('room', '');
         const roomName = info.roomname || '未知房间';
-        return `${roomClass} - ${roomName}`;
+        return `${floorId}楼 ${roomClass} - ${roomName}`;
     }
 
-    function populateRoomSelect() {
-        const roomIds = Object.keys(roomInfo).sort((a, b) => {
-            const roomA = (roomInfo[a]?.class || '').replace('无', '999');
-            const roomB = (roomInfo[b]?.class || '').replace('无', '999');
+    function getSortedRoomIds(floorId) {
+        const floor = floors[floorId];
+        return Object.keys(floor.info).filter(roomId => floor.info[roomId]?.selectable !== false).sort((a, b) => {
+            const roomA = (floor.info[a]?.class || '').replace('无', '999');
+            const roomB = (floor.info[b]?.class || '').replace('无', '999');
             return roomA.localeCompare(roomB, 'zh-Hans-CN', { numeric: true, sensitivity: 'base' });
         });
-
-        roomIds.forEach(roomId => {
-            const option = document.createElement('option');
-            option.value = roomId;
-            option.textContent = getRoomDisplayLabel(roomId);
-            roomSelect.appendChild(option);
-        });
     }
 
-    function jumpToRoom(roomId) {
-        if (!roomId || !document.getElementById(roomId)) {
-            return;
-        }
-        showInfo(roomId);
-        document.getElementById(roomId).scrollIntoView({ behavior: 'smooth', block: 'center' });
-        roomSelect.value = roomId;
-    }
-
-    window.selectRoom = function() {
-        jumpToRoom(roomSelect.value);
-    };
-
-    roomSelect.addEventListener('change', function() {
-        jumpToRoom(roomSelect.value);
-    });
-
-    populateRoomSelect();
-
-    for (let roomId in roomsPosition) {
-        const roomDiv = document.createElement('div');
-        roomDiv.classList.add('room');
-        roomDiv.id = roomId;
-        roomDiv.style.top = roomsPosition[roomId].top;
-        roomDiv.style.left = roomsPosition[roomId].left;
-        roomDiv.style.width = roomsPosition[roomId].width;
-        roomDiv.style.height = roomsPosition[roomId].height;
-        roomDiv.style.position = 'absolute';
-        roomDiv.style.transform = `rotate(${roomsPosition[roomId].rotation}deg)`;
-        roomDiv.style.transformOrigin = 'center';
-        roomDiv.onclick = function() {
-            showInfo(roomDiv.id);
-        };
-        roomsContainer.appendChild(roomDiv);
-    }
-
-    document.addEventListener('mousemove', function(event) {
-        const mouseX = event.clientX;
-        const mouseY = event.clientY;
-
-        document.querySelectorAll('.room').forEach(function(room) {
-            const rect = room.getBoundingClientRect();
-            const roomX = rect.left + rect.width / 2;
-            const roomY = rect.top + rect.height / 2;
-
-            const distance = Math.sqrt((mouseX - roomX) ** 2 + (mouseY - roomY) ** 2);
-            const maxDistance = 200; // 定义影响范围
-            const scale = Math.max(1, 1.5 - distance / maxDistance); // 计算缩放比例
-
-            room.style.transform = `rotate(${roomsPosition[room.id].rotation}deg) scale(${scale})`;
-        });
-    });
-    
-    function showInfo(roomId) {
+    function clearInfo() {
         const existingInfo = document.querySelector('.room-info');
         if (existingInfo) {
             existingInfo.remove();
         }
+    }
 
-        const roomDiv = document.getElementById(roomId);
-        const info = roomInfo[roomId] || {};
+    function updateSelectedRoom(roomId) {
+        selectedRoomId = roomId;
+        document.querySelectorAll('.room, .room-zone').forEach(room => {
+            room.classList.toggle('selected', room.dataset.roomId === roomId);
+        });
+    }
+
+    function renderPolygonRooms(floor) {
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.classList.add('rooms-svg');
+        svg.setAttribute('viewBox', '0 0 1600 1178.37');
+        svg.setAttribute('width', '1600');
+        svg.setAttribute('height', '1178.37');
+        svg.setAttribute('aria-label', `${currentFloorId}楼房间热区`);
+
+        Object.entries(floor.positions).forEach(([roomId, position]) => {
+            const zone = position.rect
+                ? document.createElementNS('http://www.w3.org/2000/svg', 'rect')
+                : document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+            zone.classList.add('room-zone');
+            if (floor.info[roomId]?.type === 'facility') {
+                zone.classList.add('facility-zone');
+            }
+            zone.dataset.roomId = roomId;
+
+            if (position.rect) {
+                const rect = position.rect;
+                zone.setAttribute('x', rect.x);
+                zone.setAttribute('y', rect.y);
+                zone.setAttribute('width', rect.width);
+                zone.setAttribute('height', rect.height);
+                if (rect.rotation) {
+                    const cx = rect.x + rect.width / 2;
+                    const cy = rect.y + rect.height / 2;
+                    zone.setAttribute('transform', `rotate(${rect.rotation} ${cx} ${cy})`);
+                }
+            } else {
+                zone.setAttribute('points', position.points.map(point => point.join(',')).join(' '));
+            }
+
+            zone.setAttribute('tabindex', '0');
+            zone.setAttribute('role', 'button');
+            zone.setAttribute('aria-label', getRoomDisplayLabel(currentFloorId, roomId));
+            zone.addEventListener('click', function() {
+                showInfo(roomId);
+            });
+            zone.addEventListener('keydown', function(event) {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    showInfo(roomId);
+                }
+            });
+            svg.appendChild(zone);
+        });
+
+        roomsContainer.appendChild(svg);
+    }
+
+    function populateRoomSelect() {
+        roomSelect.innerHTML = '<option value="">快速选择房间...</option>';
+
+        Object.keys(floors).forEach(floorId => {
+            const group = document.createElement('optgroup');
+            group.label = `${floorId}楼`;
+
+            getSortedRoomIds(floorId).forEach(roomId => {
+                const option = document.createElement('option');
+                option.value = `${floorId}:${roomId}`;
+                option.textContent = getRoomDisplayLabel(floorId, roomId);
+                group.appendChild(option);
+            });
+
+            roomSelect.appendChild(group);
+        });
+    }
+
+    function renderRooms() {
+        roomsContainer.innerHTML = '';
+        const floor = getFloor();
+        const layerOffset = floor.layerOffset || { left: 0, top: 0 };
+        roomsContainer.style.setProperty('--rooms-offset-left', `${layerOffset.left || 0}px`);
+        roomsContainer.style.setProperty('--rooms-offset-top', `${layerOffset.top || 0}px`);
+
+        if (Object.values(floor.positions).some(position => position.points || position.rect)) {
+            renderPolygonRooms(floor);
+            updateSelectedRoom(selectedRoomId);
+            return;
+        }
+
+        Object.entries(floor.positions).forEach(([roomId, position]) => {
+            const roomDiv = document.createElement('button');
+            roomDiv.type = 'button';
+            roomDiv.classList.add('room');
+            roomDiv.dataset.roomId = roomId;
+            roomDiv.setAttribute('aria-label', getRoomDisplayLabel(currentFloorId, roomId));
+            roomDiv.style.top = position.top;
+            roomDiv.style.left = position.left;
+            roomDiv.style.width = position.width;
+            roomDiv.style.height = position.height;
+            roomDiv.style.transform = `rotate(${position.rotation || 0}deg)`;
+            roomDiv.onclick = function() {
+                showInfo(roomId);
+            };
+            roomsContainer.appendChild(roomDiv);
+        });
+
+        updateSelectedRoom(selectedRoomId);
+    }
+
+    function setMapMessage(message) {
+        mapMessage.textContent = message || '';
+        mapMessage.hidden = !message;
+    }
+
+    function renderFloor(floorId) {
+        currentFloorId = floorId;
+        selectedRoomId = '';
+        const floor = getFloor();
+
+        clearInfo();
+        floorPlanElement.classList.add('switching');
+        currentFloorTitle.textContent = floor.title;
+        floorplanImage.alt = floor.imageAlt;
+        floorplanImage.style.display = 'block';
+        floorplanImage.onerror = function() {
+            floorplanImage.style.display = 'none';
+            setMapMessage(floor.missingMapText || '楼层底图暂未找到。');
+            floorPlanElement.classList.remove('switching');
+        };
+        floorplanImage.onload = function() {
+            setMapMessage(Object.keys(floor.positions).length ? '' : floor.missingMapText);
+            requestAnimationFrame(() => {
+                floorPlanElement.classList.remove('switching');
+            });
+        };
+        floorplanImage.src = floor.image;
+
+        if (!Object.keys(floor.positions).length) {
+            setMapMessage(floor.missingMapText);
+        } else {
+            setMapMessage('');
+        }
+
+        renderRooms();
+        updateFloorTabs();
+        window.setTimeout(() => {
+            floorPlanElement.classList.remove('switching');
+        }, 420);
+    }
+
+    function updateFloorTabs() {
+        document.querySelectorAll('.floor-tab').forEach(tab => {
+            const active = tab.dataset.floor === currentFloorId;
+            tab.classList.toggle('active', active);
+            tab.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+    }
+
+    function getSelectionValue(floorId, roomId) {
+        return `${floorId}:${roomId}`;
+    }
+
+    function showInfo(roomId) {
+        clearInfo();
+        const floor = getFloor();
+        const roomDiv = document.querySelector(`[data-room-id="${roomId}"]`);
+        const info = floor.info[roomId] || {};
         const classNumber = info.class || '未知';
         const roomName = info.roomname || '未知';
         const teachers = info.teachers || ['无信息'];
         const photo = info.photo || '';
+        const detailLabel = info.type === 'facility' ? '备注' : '教师';
         const infoDiv = document.createElement('div');
         infoDiv.classList.add('room-info');
 
-        let teachersHtml = '';
-        teachers.forEach(teacher => {
+        const teachersHtml = teachers.map(teacher => {
             if (teacherUrls[teacher]) {
-                teachersHtml += `<tr><td><a href="${teacherUrls[teacher]}" target="_blank">${teacher}</a></td></tr>`;
-            } else {
-                teachersHtml += `<tr><td>${teacher}</td></tr>`;
+                return `<a href="${teacherUrls[teacher]}" target="_blank" rel="noopener">${teacher}</a>`;
             }
-        });
+            return `<span>${teacher}</span>`;
+        }).join('');
 
         infoDiv.innerHTML = `
-            <table>
-                <tr><td><b>房号：</b></td><td>${classNumber}</td></tr>
-                <tr><td><b>房名：</b></td><td>${roomName}</td></tr>
-                <tr><td><b>教师：</b></td><td><table>${teachersHtml}</table></td></tr>
-                <tr>
-                    <td>
-                        ${photo ? `<td colspan="2"><img class=" long-press-able-img " src="${photo}" alt="Room Photo" style="max-width: 400px; height: auto;"></td></tr>` : ''}
-                    </td>
-                </tr>
-            </table>
+            <button class="close-btn" type="button" aria-label="关闭详情">&times;</button>
+            <h3>${classNumber}</h3>
+            <div class="info-row"><span class="info-label">房名</span><span>${roomName}</span></div>
+            <div class="info-row"><span class="info-label">教师</span><div class="teacher-list">${teachersHtml}</div></div>
+            ${photo ? `<img class="long-press-able-img" src="${photo}" alt="${classNumber} 房间照片">` : ''}
         `;
 
-        // 添加关闭按钮
-        const closeButton = document.createElement('button');
-        closeButton.classList.add('close-btn');
-        closeButton.innerHTML = '&times;';
-        closeButton.onclick = function() {
+        infoDiv.querySelector('.close-btn').onclick = function() {
             infoDiv.classList.remove('show');
-            setTimeout(() => infoDiv.remove(), 500); // 移除标签前的过渡时间
+            setTimeout(() => infoDiv.remove(), 220);
         };
-        infoDiv.appendChild(closeButton);
 
         document.querySelector('.floor-plan').appendChild(infoDiv);
+        updateSelectedRoom(roomId);
+        roomSelect.value = getSelectionValue(currentFloorId, roomId);
 
-        const rect = roomDiv.getBoundingClientRect();
-        infoDiv.style.top = `${rect.top + window.scrollY}px`;
-        infoDiv.style.left = `${rect.left + rect.width + window.scrollX}px`;
+        if (roomDiv) {
+            const floorRect = floorPlanElement.getBoundingClientRect();
+            const roomRect = roomDiv.getBoundingClientRect();
+            const top = Math.max(18, floorPlanElement.scrollTop + roomRect.top - floorRect.top - 12);
+            const rightSideLeft = floorPlanElement.scrollLeft + roomRect.right - floorRect.left + 18;
+            const leftSideLeft = floorPlanElement.scrollLeft + roomRect.left - floorRect.left - 438;
+            const left = rightSideLeft > 1160 && leftSideLeft > 18 ? leftSideLeft : Math.min(rightSideLeft, 1160);
+            infoDiv.style.top = `${top}px`;
+            infoDiv.style.left = `${left}px`;
+            roomDiv.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+        } else {
+            infoDiv.style.top = '96px';
+            infoDiv.style.left = '24px';
+            document.querySelector('.floor-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
 
         requestAnimationFrame(() => {
             infoDiv.classList.add('show');
         });
     }
 
+    function locateRoom(roomId) {
+        const roomDiv = document.querySelector(`[data-room-id="${roomId}"]`);
+        if (!roomDiv) {
+            return;
+        }
+        roomDiv.classList.remove('locating');
+        void roomDiv.offsetWidth;
+        roomDiv.classList.add('locating');
+        window.setTimeout(() => roomDiv.classList.remove('locating'), 1300);
+    }
+
+    function jumpToRoom(floorId, roomId, shouldLocate = false) {
+        if (!floors[floorId] || !floors[floorId].info[roomId]) {
+            return;
+        }
+
+        if (currentFloorId !== floorId) {
+            renderFloor(floorId);
+        }
+
+        showInfo(roomId);
+        if (shouldLocate) {
+            locateRoom(roomId);
+        }
+        searchResultDiv.textContent = '';
+    }
+
+    function parseSelection(value) {
+        const [floorId, roomId] = (value || '').split(':');
+        return { floorId, roomId };
+    }
+
+    window.selectRoom = function() {
+        const { floorId, roomId } = parseSelection(roomSelect.value);
+        jumpToRoom(floorId, roomId);
+    };
+
+    roomSelect.addEventListener('change', function() {
+        window.selectRoom();
+    });
+
+    document.querySelectorAll('.floor-tab').forEach(tab => {
+        tab.addEventListener('click', function() {
+            renderFloor(tab.dataset.floor);
+            roomSelect.value = '';
+            searchResultDiv.textContent = '';
+        });
+    });
+
     window.searchInfo = function () {
         const searchInput = document.getElementById('searchInput').value.trim();
-        const roomIds = Object.keys(roomInfo);
-        let found = false;
-        const searchResultDiv = document.getElementById('searchResult');
 
         if (!searchInput) {
-            searchResultDiv.innerHTML = '请输入关键词';
+            searchResultDiv.textContent = '请输入关键词';
             return;
         }
 
@@ -305,33 +570,40 @@ document.addEventListener('DOMContentLoaded', function() {
         const aliasCandidates = keywordAliases[normalizedInput] || [];
         const candidates = [searchInput, ...aliasCandidates];
 
-        for (let i = 0; i < roomIds.length; i++) {
-            const info = roomInfo[roomIds[i]] || {};
-            const classNumber = info.class || '';
-            const roomName = info.roomname || '';
-            const teachers = info.teachers || [];
-            const teachersString = teachers.join('、');
-            const searchableText = [
-                normalizeText(classNumber),
-                normalizeText(roomName),
-                normalizeText(teachersString)
-            ];
+        for (const floorId of Object.keys(floors)) {
+            const floor = floors[floorId];
+            const roomIds = Object.keys(floor.info);
 
-            if (candidates.some(keyword => {
-                const normalizedKeyword = normalizeText(keyword);
-                return normalizedKeyword && searchableText.some(text => text.includes(normalizedKeyword));
-            })) {
-                jumpToRoom(roomIds[i]);
-                found = true;
-                break;
+            for (let i = 0; i < roomIds.length; i++) {
+                const roomId = roomIds[i];
+                const info = floor.info[roomId] || {};
+                if (info.searchable === false) {
+                    continue;
+                }
+                const classNumber = info.class || '';
+                const roomName = info.roomname || '';
+                const teachers = info.teachers || [];
+                const teachersString = teachers.join('、');
+                const searchableText = [
+                    normalizeText(classNumber),
+                    normalizeText(roomName),
+                    normalizeText(teachersString)
+                ];
+
+                if (candidates.some(keyword => {
+                    const normalizedKeyword = normalizeText(keyword);
+                    return normalizedKeyword && searchableText.some(text => text.includes(normalizedKeyword));
+                })) {
+                    jumpToRoom(floorId, roomId, true);
+                    return;
+                }
             }
         }
 
-        if (!found) {
-            searchResultDiv.innerHTML = '无此信息';
-        } else {
-            searchResultDiv.innerHTML = '';  // 清空“无此信息”的残留
-        }
+        searchResultDiv.textContent = '无此信息';
     };
+
+    populateRoomSelect();
+    renderFloor(currentFloorId);
     
 });
